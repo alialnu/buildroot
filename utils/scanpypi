@@ -628,9 +628,13 @@ class BuildrootPackage():
         except IndexError:
             help_lines = ["\t  FIXME: no help text was found."]
 
+        home_page = self.metadata['info']['home_page']
+        if not home_page.strip():
+            home_page = "FIXME: no home page was found."
+
         # \t + two spaces is 3 char long
         help_lines.append('')
-        help_lines.append('\t  ' + self.metadata['info']['home_page'])
+        help_lines.append('\t  ' + home_page)
         help_lines = [x + '\n' for x in help_lines]
         lines += help_lines
 
