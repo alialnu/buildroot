@@ -1,0 +1,5 @@
+# md5, sha256 from https://pypi.org/pypi/sphinxcontrib-serializinghtml/json
+md5	6a4318d6d11c345fbc669e6a86f32766  sphinxcontrib-serializinghtml-1.1.3.tar.gz
+sha256	c0efb33f8052c04fd7a26c0a07f1678e8512e0faec19f4aa8f2473a8b81d5227  sphinxcontrib-serializinghtml-1.1.3.tar.gz
+# Locally computed sha256 checksums
+sha256	3684cbcc712af8e969688e1d63fcf14d97c24422da92cf15f77f25859e15f2f5  LICENSE

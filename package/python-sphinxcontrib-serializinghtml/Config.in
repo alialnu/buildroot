@@ -1,0 +1,7 @@
+config BR2_PACKAGE_PYTHON_SPHINXCONTRIB_SERIALIZINGHTML
+	bool "python-sphinxcontrib-serializinghtml"
+	help
+	  a sphinx extension which outputs "serialized"
+	  HTML files (json and pickle).
+
+	  http://sphinx-doc.org/
