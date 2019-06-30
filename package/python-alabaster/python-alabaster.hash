@@ -1,0 +1,5 @@
+# md5, sha256 from https://pypi.org/pypi/alabaster/json
+md5	3591827fde96d1dd23970fb05410ed04  alabaster-0.7.12.tar.gz
+sha256	a661d72d58e6ea8a57f7a86e37d86716863ee5e92788398526d58b26a4e4dc02  alabaster-0.7.12.tar.gz
+# Locally computed sha256 checksums
+sha256	c55456cce70d1a7247e507532b2f7a528805fa8184ee806630055d690f7569e4  LICENSE
