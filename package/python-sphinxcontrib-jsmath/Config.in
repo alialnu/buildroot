@@ -1,0 +1,7 @@
+config BR2_PACKAGE_PYTHON_SPHINXCONTRIB_JSMATH
+	bool "python-sphinxcontrib-jsmath"
+	help
+	  A sphinx extension which renders display math in HTML via
+	  JavaScript.
+
+	  http://sphinx-doc.org/
