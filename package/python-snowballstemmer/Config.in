@@ -1,0 +1,7 @@
+config BR2_PACKAGE_PYTHON_SNOWBALLSTEMMER
+	bool "python-snowballstemmer"
+	help
+	  This package provides 23 stemmers for 22 languages
+	  generated from Snowball algorithms.
+
+	  https://github.com/snowballstem/snowball
