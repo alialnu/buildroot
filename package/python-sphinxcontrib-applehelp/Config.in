@@ -1,0 +1,6 @@
+config BR2_PACKAGE_PYTHON_SPHINXCONTRIB_APPLEHELP
+	bool "python-sphinxcontrib-applehelp"
+	help
+	  A sphinx extension which outputs Apple help books.
+
+	  http://sphinx-doc.org/

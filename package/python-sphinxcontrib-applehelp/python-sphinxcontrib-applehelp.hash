@@ -1,0 +1,5 @@
+# md5, sha256 from https://pypi.org/pypi/sphinxcontrib-applehelp/json
+md5	c3424507cc28291f8005081b6a96afb1  sphinxcontrib-applehelp-1.0.1.tar.gz
+sha256	edaa0ab2b2bc74403149cb0209d6775c96de797dfd5b5e2a71981309efab3897  sphinxcontrib-applehelp-1.0.1.tar.gz
+# Locally computed sha256 checksums
+sha256	445e28ceb62ff34619a7031148aea9fce3560dc55fd8e15a719614b1fb8b956a  LICENSE
