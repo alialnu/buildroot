@@ -621,9 +621,12 @@ class BuildrootPackage():
                                    initial_indent='\t  ',
                                    subsequent_indent='\t  ')
 
-        # make sure a help text is terminated with a full stop
-        if help_lines[-1][-1] != '.':
-            help_lines[-1] += '.'
+        # make sure a help text is found and is terminated with a full stop
+        try:
+            if help_lines[-1][-1] != '.':
+                help_lines[-1] += '.'
+        except IndexError:
+            help_lines = ["\t  FIXME: no help text was found."]
 
         # \t + two spaces is 3 char long
         help_lines.append('')
