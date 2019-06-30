@@ -1,0 +1,5 @@
+# md5, sha256 from https://pypi.org/pypi/sphinxcontrib-qthelp/json
+md5	3532d4643d0b1cc3806e43f59495c030  sphinxcontrib-qthelp-1.0.2.tar.gz
+sha256	79465ce11ae5694ff165becda529a600c754f4bc459778778c7017374d4d406f  sphinxcontrib-qthelp-1.0.2.tar.gz
+# Locally computed sha256 checksums
+sha256	27b1953612e4740d49737ff7dfe12c11aa9151da8e7f4a8224b5247d07a37695  LICENSE
