@@ -1,0 +1,6 @@
+config BR2_PACKAGE_PYTHON_SPHINXCONTRIB_DEVHELP
+	bool "python-sphinxcontrib-devhelp"
+	help
+	  A sphinx extension which outputs Devhelp documents.
+
+	  http://sphinx-doc.org/
