@@ -1,0 +1,42 @@
+From b53f9323554baaf3add84443511d7356ddb24cb1 Mon Sep 17 00:00:00 2001
+From: Ali Nubani <ali.alnubani94@gmail.com>
+Date: Sat, 29 Jun 2019 20:56:58 +0300
+Subject: [PATCH] fix pcap handling
+
+Signed-off-by: Ali Nubani <ali.alnubani94@gmail.com>
+---
+ drivers/net/pcap/meson.build | 16 ++++------------
+ 1 file changed, 4 insertions(+), 12 deletions(-)
+
+diff --git a/drivers/net/pcap/meson.build b/drivers/net/pcap/meson.build
+index 2c2fd11e4..0c4e0201a 100644
+--- a/drivers/net/pcap/meson.build
++++ b/drivers/net/pcap/meson.build
+@@ -1,20 +1,12 @@
+ # SPDX-License-Identifier: BSD-3-Clause
+ # Copyright(c) 2017 Intel Corporation
+ 
+-pcap_dep = dependency('pcap', required: false)
+-if pcap_dep.found()
++pcap_dep = cc.find_library('pcap', required: false)
++if pcap_dep.found() and cc.has_header('pcap.h', dependencies: pcap_dep)
+ 	build = true
+ else
+-	# pcap got a pkg-config file only in 1.9.0 and before that meson uses
+-	# an internal pcap-config finder, which is not compatible with
+-	# cross-compilation, so try to fallback to find_library
+-	pcap_dep = cc.find_library('pcap', required: false)
+-	if pcap_dep.found() and cc.has_header('pcap.h', dependencies: pcap_dep)
+-		build = true
+-		pkgconfig_extra_libs += '-lpcap'
+-	else
+-		build = false
+-	endif
++	build = false
+ endif
+ sources = files('rte_eth_pcap.c')
+ ext_deps += pcap_dep
++pkgconfig_extra_libs += '-lpcap'
+-- 
+2.22.0
+

@@ -122,6 +122,9 @@ N:	Alexandre Esse <alexandre.esse.dev@gmail.com>
 F:	package/kvazaar/
 F:	package/v4l2loopback/
 
+N:	Ali Alnubani <alialnu@mellanox.com>
+F:	package/dpdk/
+
 N:	Alistair Francis <alistair@alistair23.me>
 F:	boot/opensbi/
 F:	package/xen/

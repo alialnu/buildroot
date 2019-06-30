@@ -4,57 +4,42 @@
 #
 ################################################################################
 
-DPDK_VERSION = 16.04
+DPDK_VERSION = 19.05
 DPDK_SITE = http://dpdk.org/browse/dpdk/snapshot
+DPDK_SOURCE = dpdk-$(DPDK_VERSION).tar.gz
+DPDK_LICENSE = BSD-3-Clause OR LGPL-2.1 (core), GPL-2.0 (Linux drivers)
+DPDK_LICENSE_FILES = license/bsd-3-clause.txt license/gpl-2.0.txt license/lgpl-2.1.txt
 
-DPDK_LICENSE = BSD-2c (core), GPLv2+ (Linux drivers)
-DPDK_LICENSE_FILES = GNUmakefile LICENSE.GPL
-DPDK_INSTALL_STAGING = YES
+DPDK_DEPENDENCIES = host-pkgconf linux
+#DPDK_DEPENDENCIES = host-pkgconf linux util-linux
 
-DPDK_DEPENDENCIES += linux
+ifeq ($(BR2_PACKAGE_NUMACTL),y)
+DPDK_DEPENDENCIES += numactl
+endif
 
 ifeq ($(BR2_PACKAGE_LIBPCAP),y)
 DPDK_DEPENDENCIES += libpcap
 endif
 
-ifeq ($(BR2_SHARED_LIBS),y)
-define DPDK_ENABLE_SHARED_LIBS
-	$(call KCONFIG_ENABLE_OPT,CONFIG_RTE_BUILD_SHARED_LIB,\
-			$(@D)/build/.config)
-endef
-
-DPDK_POST_CONFIGURE_HOOKS += DPDK_ENABLE_SHARED_LIBS
+ifeq ($(BR2_PACKAGE_DPDK_DOCS),y)
+DPDK_CONF_OPTS += -Denable_docs=true
+DPDK_DEPENDENCIES += host-doxygen host-python-sphinx
 endif
 
-DPDK_CONFIG = $(call qstrip,$(BR2_PACKAGE_DPDK_CONFIG))
+#ifeq ($(BR2_PACKAGE_KMOD),y)
+#DPDK_DEPENDENCIES += kmod
+#endif
 
-define DPDK_CONFIGURE_CMDS
-	$(MAKE) -C $(@D) T=$(DPDK_CONFIG) RTE_KERNELDIR=$(LINUX_DIR) \
-			   CROSS=$(TARGET_CROSS) config
-endef
-
-define DPDK_BUILD_CMDS
-	$(MAKE) -C $(@D) RTE_KERNELDIR=$(LINUX_DIR) CROSS=$(TARGET_CROSS)
-endef
-
-define DPDK_INSTALL_STAGING_CMDS
-	$(MAKE) -C $(@D) DESTDIR=$(STAGING_DIR) prefix=/usr \
-		 CROSS=$(TARGET_CROSS) install-sdk
-endef
-
-ifeq ($(BR2_PACKAGE_DPDK_TEST),y)
-define DPDK_INSTALL_TARGET_TEST
-	mkdir -p $(TARGET_DIR)/usr/dpdk
-	$(INSTALL) -m 0755 -D $(@D)/build/app/test $(TARGET_DIR)/usr/dpdk/test
-	cp -dpfr $(@D)/app/test/*.py $(TARGET_DIR)/usr/dpdk
-endef
+ifeq ($(BR2_PACKAGE_DPDK_KMODS),n)
+DPDK_CONF_OPTS += -Denable_kmods=false
 endif
 
-define DPDK_INSTALL_TARGET_CMDS
-	$(MAKE) -C $(@D) DESTDIR=$(TARGET_DIR) CROSS=$(TARGET_CROSS) \
-		kerneldir=/lib/modules/$(LINUX_VERSION_PROBED)/extra/dpdk \
-		prefix=/usr install-runtime install-kmod
-	$(DPDK_INSTALL_TARGET_TEST)
-endef
+ifeq ($(BR2_PACKAGE_DPDK_EXAMPLES),y)
+DPDK_CONF_OPTS += -Dexamples=all
+endif
 
-$(eval $(generic-package))
+ifeq ($(BR2_PACKAGE_DPDK_TESTS),y)
+DPDK_CONF_OPTS += -Dtests=true
+endif
+
+$(eval $(meson-package))

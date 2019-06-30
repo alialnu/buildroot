@@ -1,0 +1,29 @@
+From e8241ae99bd4f3947645f029f7ea97d5a65fcf7c Mon Sep 17 00:00:00 2001
+From: Ali Nubani <ali.alnubani94@gmail.com>
+Date: Sat, 29 Jun 2019 23:47:55 +0300
+Subject: [PATCH] build: install example applications
+
+Signed-off-by: Ali Nubani <ali.alnubani94@gmail.com>
+---
+ examples/meson.build | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/examples/meson.build b/examples/meson.build
+index 1a6134f12..f4003baa0 100644
+--- a/examples/meson.build
++++ b/examples/meson.build
+@@ -66,7 +66,10 @@ foreach example: examples
+ 			link_whole: driver_libs,
+ 			link_args: dpdk_extra_ldflags,
+ 			c_args: cflags,
+-			dependencies: dep_objs)
++			dependencies: dep_objs,
++			install_rpath: join_paths(get_option('prefix'),
++							driver_install_path),
++			install: true)
+ 	elif not allow_skips
+ 		error('Cannot build requested example "' + name + '"')
+ 	else
+-- 
+2.22.0
+
