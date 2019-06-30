@@ -1,0 +1,5 @@
+# md5, sha256 from https://pypi.org/pypi/sphinx/json
+md5	37c966b81014b04046cdf4b94536eea8  Sphinx-2.1.2.tar.gz
+sha256	f9a79e746b87921cabc3baa375199c6076d1270cee53915dbd24fdbeaaacc427  Sphinx-2.1.2.tar.gz
+# Locally computed sha256 checksums
+sha256	5004de7c0e86d9f3b7fa059807719c62b06ee5a30b8358081433f28c3b9ac9c9  LICENSE
