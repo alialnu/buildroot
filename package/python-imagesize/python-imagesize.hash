@@ -1,0 +1,5 @@
+# md5, sha256 from https://pypi.org/pypi/imagesize/json
+md5	2f89749b05e07c79c46330dbc62f1e02  imagesize-1.1.0.tar.gz
+sha256	f3832918bc3c66617f92e35f5d70729187676313caa60c187eb0f28b8fe5e3b5  imagesize-1.1.0.tar.gz
+# Locally computed sha256 checksums
+sha256	d0659c2767a164c2bf2736ee9f7bb619e0f165c89a962839de53fd5f77f62f4e  LICENSE.rst
