@@ -1,0 +1,6 @@
+config BR2_PACKAGE_PYTHON_SPHINXCONTRIB_HTMLHELP
+	bool "python-sphinxcontrib-htmlhelp"
+	help
+	  A sphinx extension which renders HTML help files.
+
+	  http://sphinx-doc.org/

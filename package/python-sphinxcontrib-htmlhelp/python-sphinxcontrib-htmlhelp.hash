@@ -1,0 +1,5 @@
+# md5, sha256 from https://pypi.org/pypi/sphinxcontrib-htmlhelp/json
+md5	f72e4b26ec0f6387d855c74819500b66  sphinxcontrib-htmlhelp-1.0.2.tar.gz
+sha256	4670f99f8951bd78cd4ad2ab962f798f5618b17675c35c5ac3b2132a14ea8422  sphinxcontrib-htmlhelp-1.0.2.tar.gz
+# Locally computed sha256 checksums
+sha256	dccf210bbbdda1b97caff8333a45bd8a7621f32b6f8b1d13a748f24a4e5d99d3  LICENSE
